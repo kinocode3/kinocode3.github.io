@@ -188,16 +188,18 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-          　["R", "プレイヤーの座標を調べる %m.pos", "getPlayerPos", 'x'],
+            ["R", "自分の座標 %m.pos", "getPlayerPos", 'x'],
+            ["R", "自分の座標 %m.pos", "getPlayerPos", 'y'],
+            ["R", "自分の座標 %m.pos", "getPlayerPos", 'z'],
             [' ', "チャット %s", "postToChat", "ここに入力"],
-            [" ", "プレイヤーの座標をチャットに表示", "playerPosToChat"],
-            [" ", "プレイヤーの座標を変更 x:%n y:%n z:%n", "setPlayerPos", 0, 0, 0],
+            [" ", "自分の座標をチャットに表示", "playerPosToChat"],
+            [" ", "自分の座標を変更 x:%n y:%n z:%n", "setPlayerPos", 0, 0, 0],
             ["R", "ブロックのIDを調べる pos x:%n y:%n z:%n %m.blockPos", "getBlock", 0, 0, 0],
             [" ", "ブロックを置く x:%n y:%n z:%n ID %n data %n %m.blockPos", "setBlock", 0, 0, 0, 1, -1],
             [" ", "ブロックを一列に置く x1:%n z1:%n から  x2:%n z2:%n y:%n まで  ID %n data %n", "setLine", 0, 0, 0, 0, 0, 1, -1],
             [" ", "ブロックを複数列に置く x1:%n y1:%n z1:%n から  x2:%n y2:%n z2:%n まで  ID %n data %n", "setBlocks", 0, 0, 0, 0, 0, 0, 1, -1],
             [" ", "ブロックを円状に置く  中心 x1:%n z1:%n  半径 r:%n 高さ y:%n to ID %n data %n", "setCircle", 0, 0, 0, 0, 0, 1, -1],
-            ["h", "ブロックを剣で右クリック", 'whenBlockHit'],
+            ["h", "ブロックを剣で右クリックした時", 'whenBlockHit'],
         ],
         menus: {
             pos: ['x', 'y', 'z'],
