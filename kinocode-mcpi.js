@@ -1,21 +1,6 @@
 (function (ext) {
 
     var blockHits = false;
-    
-    ext.getRotation = function(str) {
-        var cmdUrl = "http://localhost:4715/postToChat/" + encodeURIComponent(str);
-        $.ajax({
-            type: "GET",
-            url: cmdUrl,
-            //dataType: "jsonp", // hack for the not origin problem - replace with CORS based solution
-            success: function(data) {
-                console.log("postToChat success");
-            },
-            error: function(jqxhr, textStatus, error) { // have to change this coz jasonp parse error
-                console.log("Error postToChat: ", error);
-            }
-        }); // nb: GET is including the javascript callback. Do I need this for one-way call?
-    };
 
     ext.postToChat = function(str) {
         var cmdUrl = "http://localhost:4715/postToChat/" + encodeURIComponent(str);
@@ -209,13 +194,12 @@
             [' ', "チャット %s", "postToChat", "ここに入力"],
             [" ", "自分の座標をチャットに表示", "playerPosToChat"],
             [" ", "自分の座標を変更 x:%n y:%n z:%n", "setPlayerPos", 0, 0, 0],
-            ["R", "ブロックのIDを調べる pos x:%n y:%n z:%n %m.blockPos", "getBlock", 0, 0, 0],
+            ["R", "ブロックのIDを調べる x:%n y:%n z:%n %m.blockPos", "getBlock", 0, 0, 0],
             [" ", "ブロックを置く x:%n y:%n z:%n ID %n data %n %m.blockPos", "setBlock", 0, 0, 0, 1, -1],
             [" ", "ブロックを一列に置く x1:%n z1:%n から  x2:%n z2:%n y:%n まで  ID %n data %n", "setLine", 0, 0, 0, 0, 0, 1, -1],
             [" ", "ブロックを複数列に置く x1:%n y1:%n z1:%n から  x2:%n y2:%n z2:%n まで  ID %n data %n", "setBlocks", 0, 0, 0, 0, 0, 0, 1, -1],
             [" ", "ブロックを円状に置く  中心 x1:%n z1:%n  半径 r:%n 高さ y:%n to ID %n data %n", "setCircle", 0, 0, 0, 0, 0, 1, -1],
             ["h", "ブロックを剣で右クリックした時", 'whenBlockHit'],
-            [" ", "向きをチャットに表示", 'getRotation'],
         ],
         menus: {
             pos: ['x', 'y', 'z'],
