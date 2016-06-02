@@ -215,7 +215,7 @@
             [" ", "ブロックを複数列に置く x1:%n y1:%n z1:%n から  x2:%n y2:%n z2:%n まで  ID %n data %n", "setBlocks", 0, 0, 0, 0, 0, 0, 1, -1],
             [" ", "ブロックを円状に置く  中心 x1:%n z1:%n  半径 r:%n 高さ y:%n to ID %n data %n", "setCircle", 0, 0, 0, 0, 0, 1, -1],
             ["h", "ブロックを剣で右クリックした時", 'whenBlockHit'],
-            [" ", "向きをチャットに表示", 'getRotation'],
+            [" ", "向きをチャットに表示 %s", 'getRotation', "ここに入力"],
         ],
         menus: {
             pos: ['x', 'y', 'z'],
